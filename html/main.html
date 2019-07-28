@@ -1,0 +1,118 @@
+<!DOCTYPE doctype html>
+<html lang="en" ng-app="webviewer">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    	<!-- Bootstrap CSS -->
+    	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+
+    	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+        <!-- Javascript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+        <script type="text/javascript" src="../js/main.js"></script>
+        <script type="text/javascript" src="../js/thumbnailService.js"></script>
+        <script type="text/javascript" src="../js/mainController.js"></script>
+
+    </head>
+    <body ng-controller="mainController">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            opentext | Imaging
+        </nav>
+        <!-- Menubar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <button aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNavDropdown" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon">
+                </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a aria-expanded="false" aria-haspopup="true" class="nav-link" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+                            File
+                        </a>
+                        <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+                            <a class="dropdown-item" href="#" ng-click="AddElement()" role="button">
+                                Add Elements
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                Another action
+                            </a>
+                            <div class="dropdown-divider">
+                            </div>
+                            <a class="dropdown-item" href="#">
+                                Something else here
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a aria-expanded="false" aria-haspopup="true" class="nav-link" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+                            Edit
+                        </a>
+                        <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+                            <a class="dropdown-item" href="#">
+                                Action
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                Another action
+                            </a>
+                            <div class="dropdown-divider">
+                            </div>
+                            <a class="dropdown-item" href="#">
+                                Something else here
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a aria-expanded="false" aria-haspopup="true" class="nav-link" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+                            View
+                        </a>
+                        <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+                            <a class="dropdown-item" href="#">
+                                Action
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                Another action
+                            </a>
+                            <div class="dropdown-divider">
+                            </div>
+                            <a class="dropdown-item" href="#">
+                                Something else here
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a aria-expanded="false" aria-haspopup="true" class="nav-link" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+                            Help
+                        </a>
+                        <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+                            <a class="dropdown-item" href="#">
+                                Action
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                Another action
+                            </a>
+                            <div class="dropdown-divider">
+                            </div>
+                            <a class="dropdown-item" href="#">
+                                Something else here
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Menubar end-->
+        <!--Content frame-->
+        <!--Thumbnail panel-->
+        <div class="container-fluid px-0" id="contentFrame">
+        </div>
+        <!--Thumbnail panel end-->
+        <!--content frame end-->
+    </body>
+</html>
