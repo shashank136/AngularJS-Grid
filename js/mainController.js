@@ -4,16 +4,11 @@
     mainController.$inject = ['$scope', '$log', 'thumbnailService'];
 
     function mainController($scope, $log, thumbnailService) {
-        $scope.widgets = [{
+        $scope.widgets = [ {
             x: 0,
             y: 0,
-            width: 1,
-            height: 1
-        }, {
-            x: 0,
-            y: 0,
-            width: 3,
-            height: 1
+            width: 10,
+            height: 3
         }];
 
         $scope.options = {
@@ -76,5 +71,13 @@
         $scope.onItemRemoved = function(item) {
             $log.log("onItemRemoved item: " + item);
         };
+
+        $scope.getPage = function(){
+        	$scope.pageContent = "../res/img/umg.jpg"
+        }
+
+        $scope.removePage = function(){
+        	$scope.pageContent = "test";
+        }
     };
 })();

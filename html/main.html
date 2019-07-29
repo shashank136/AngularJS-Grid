@@ -41,6 +41,10 @@
                 text-align: center;
                 background-color: #732145;
             }
+            .pagecontent{
+                background-color: #FFFFFF;
+                height:100%;
+            }
         </style>
         
     </head>
@@ -141,6 +145,11 @@
                        <div gridstack-item ng-repeat="w in widgets" class="grid-stack-item" gs-item-x="w.x" gs-item-y="w.y" gs-item-width="w.width" gs-item-height="w.height" gs-item-autopos="1" on-item-added="onItemAdded(item)" on-item-removed="onItemRemoved(item)">
                            <div class="grid-stack-item-content">
                                <a class="btn btn-primary" ng-click="removeWidget(w)" href="#">remove</a>
+                               <a class="btn btn-primary" ng-click="getPage()" href="#">getPageContent</a>
+                               <a class="btn btn-primary" ng-click="removePage()" href="#">removePageContent</a>
+                               <div class="pagecontent">
+                                   <img ng-src="{{pageContent}}" alt="page content">
+                               </div>
                            </div>
                        </div>
                    </div>
