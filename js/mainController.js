@@ -8,7 +8,7 @@
             x: 0,
             y: 0,
             width: 10,
-            height: 3
+            height: 2
         }];
 
         $scope.options = {
@@ -72,6 +72,7 @@
             $log.log("onItemRemoved item: " + item);
         };
 
+        // code to add pages and remove pages from the content frame
         $scope.getPage = function(){
         	$scope.pageContent = "../res/img/umg.jpg"
         }
