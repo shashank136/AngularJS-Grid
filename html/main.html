@@ -7,22 +7,46 @@
 
     	<!-- Bootstrap CSS -->
     	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+        <link rel="stylesheet" type="text/css" href="C:\Users\hshashak\Desktop\Smart_UI\css\gridstack.css">
+        <link rel="stylesheet" type="text/css" href="C:\Users\hshashak\Desktop\Smart_UI\css\gridstack-extra.css">
 
     	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	    <!--script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script-->
+        <script type="text/javascript" src="C:\Users\hshashak\Desktop\Smart_UI\js\common\jquery.min.js"></script>
 	    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-        <!-- Javascript -->
+        
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+        <script type="text/javascript" src="C:\Users\hshashak\Desktop\Smart_UI\js\common\jquery-ui.js"></script>
+        <script type="text/javascript" src="C:\Users\hshashak\Desktop\Smart_UI\js\common\lodash.min.js"></script>
+        <!--script type="text/javascript" src="C:\Users\hshashak\Desktop\Smart_UI\js\common\angular.min.js"></script-->
+        <script type="text/javascript" src="C:\Users\hshashak\Desktop\Smart_UI\js\common\gridstack.js"></script>
+        <script type="text/javascript" src="../js/core/gridstack.controller.js"></script>
+        <script type="text/javascript" src="../js/core/gridstack.directive.js"></script>
+        <script type="text/javascript" src="../js/core/gridstackitem.directive.js"></script>
+
+        <!-- Javascript -->
+        
         <script type="text/javascript" src="../js/main.js"></script>
         <script type="text/javascript" src="../js/thumbnailService.js"></script>
         <script type="text/javascript" src="../js/mainController.js"></script>
 
+        <style type="text/css">
+            .grid1 {
+                background: #c6ecf1;
+            }
+            .grid-stack-item-content {
+                color: #2c3e50;
+                text-align: center;
+                background-color: #732145;
+            }
+        </style>
+        
     </head>
     <body ng-controller="mainController">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            opentext | Imaging
+            <img src="C:\Users\hshashak\Desktop\16.2.8_latest\16_2_8_workspace\latest_16_2_8\WebContent\UI\component\banner\resource\image\webviewerIcon.png" width="300" height="30" class="d-inline-block align-top" alt="">
         </nav>
         <!-- Menubar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -37,11 +61,11 @@
                             File
                         </a>
                         <div aria-labelledby="navbarDropdown" class="dropdown-menu">
-                            <a class="dropdown-item" href="#" ng-click="AddElement()" role="button">
-                                Add Elements
+                            <a class="dropdown-item" href="#" ng-click="addWidget()" role="button">
+                                Add Element
                             </a>
-                            <a class="dropdown-item" href="#">
-                                Another action
+                            <a class="dropdown-item" href="#" ng-click="moveWidget()" role="button">
+                                Remove Element
                             </a>
                             <div class="dropdown-divider">
                             </div>
@@ -111,6 +135,17 @@
         <!--Content frame-->
         <!--Thumbnail panel-->
         <div class="container-fluid px-0" id="contentFrame">
+           <div class='row'>
+               <div class="col-md-12">
+                   <div gridstack class="grid-stack grid1" options="options" on-change="onChange(event,items)" on-drag-start="onDragStart(event,ui)" on-drag-stop="onDragStop(event,ui)" on-resize-start="onResizeStart(event,ui)" on-resize-stop="onResizeStop(event,ui)">
+                       <div gridstack-item ng-repeat="w in widgets" class="grid-stack-item" gs-item-x="w.x" gs-item-y="w.y" gs-item-width="w.width" gs-item-height="w.height" gs-item-autopos="1" on-item-added="onItemAdded(item)" on-item-removed="onItemRemoved(item)">
+                           <div class="grid-stack-item-content">
+                               <a class="btn btn-primary" ng-click="removeWidget(w)" href="#">remove</a>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
         </div>
         <!--Thumbnail panel end-->
         <!--content frame end-->

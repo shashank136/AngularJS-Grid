@@ -1,4 +1,4 @@
 (function() {
     'use strict';
-    angular.module('webviewer',[]);
+    angular.module('webviewer',['gridstack-angular']);
 })();
