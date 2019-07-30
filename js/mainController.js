@@ -15,6 +15,11 @@
             cellHeight: 200,
             verticalMargin: 10
         };
+
+        $scope.content = true;
+        $scope.thumbnail = false;
+        $scope.notes = false;
+        $scope.help = false;
         
         $scope.AddElement = function() {
             var target = angular.element(document.getElementById('contentFrame'));
