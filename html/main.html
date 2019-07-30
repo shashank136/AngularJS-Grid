@@ -29,8 +29,10 @@
         <!-- Javascript -->
         
         <script type="text/javascript" src="../js/main.js"></script>
+        <script type="text/javascript" src="../js/services/widgetfactoryService.js"></script>
+        <script type="text/javascript" src="../js/services/apiService.js"></script>
         <script type="text/javascript" src="../js/services/thumbnailService.js"></script>
-        <!--script type="text/javascript" src="../js/services/dialogService.js"></script-->
+        <script type="text/javascript" src="../js/services/contentFrameService.js"></script>
         <script type="text/javascript" src="../js/mainController.js"></script>
 
         <style type="text/css">
@@ -45,6 +47,11 @@
             .pagecontent{
                 background-color: #FFFFFF;
                 height:100%;
+            }
+            .icons{
+                width: 30px;
+                height: 30px;
+                margin: 0 2px 0 2px;
             }
         </style>
         
@@ -61,7 +68,19 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item dropdown">
+                    <li class="nav-item">
+                        <img src="../res/img/SVG/32-office-icons_24.svg" ng-click="addWidget()" class="icons" title="Add Frame"/>
+                    </li>
+                     <li class="nav-item">
+                        <img src="../res/img/SVG/32-office-icons_26.svg" ng-click="addWidget()" class="icons" title="Show thumbnails"/>
+                    </li>
+                    <li class="nav-item">
+                        <img src="../res/img/SVG/32-office-icons_29.svg" ng-click="addWidget()" class="icons" title="Add Notes"/>
+                    </li>
+                     <li class="nav-item">
+                        <img src="../res/img/SVG/32-office-icons_1.svg" ng-click="addWidget()" class="icons" title="Help"/>
+                    </li>
+                    <!--li class="nav-item dropdown">
                         <a aria-expanded="false" aria-haspopup="true" class="nav-link" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
                             File
                         </a>
@@ -116,10 +135,11 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a aria-expanded="false" aria-haspopup="true" class="nav-link" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+                         <img src="../res/img/SVG/32-office-icons_1.svg" ng-click="removeWidget(w)" class="icons" aria-expanded="false" aria-haspopup="true" class="nav-link" data-toggle="dropdown" href="#" id="navbarDropdown" role="button"/-->
+                        <!--a aria-expanded="false" aria-haspopup="true" class="nav-link" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
                             Help
-                        </a>
-                        <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+                        </a-->
+                        <!--div aria-labelledby="navbarDropdown" class="dropdown-menu">
                             <a class="dropdown-item" href="#">
                                 Action
                             </a>
@@ -132,7 +152,7 @@
                                 Something else here
                             </a>
                         </div>
-                    </li>
+                    </li-->
                 </ul>
             </div>
         </nav>
@@ -145,9 +165,9 @@
                    <div gridstack class="grid-stack grid1" options="options" on-change="onChange(event,items)" on-drag-start="onDragStart(event,ui)" on-drag-stop="onDragStop(event,ui)" on-resize-start="onResizeStart(event,ui)" on-resize-stop="onResizeStop(event,ui)">
                        <div gridstack-item ng-repeat="w in widgets" class="grid-stack-item" gs-item-x="w.x" gs-item-y="w.y" gs-item-width="w.width" gs-item-height="w.height" gs-item-autopos="1" on-item-added="onItemAdded(item)" on-item-removed="onItemRemoved(item)">
                            <div class="grid-stack-item-content">
-                               <a class="btn btn-primary" ng-click="removeWidget(w)" href="#">remove</a>
-                               <a class="btn btn-primary" ng-click="getPage()" href="#">getPageContent</a>
-                               <a class="btn btn-primary" ng-click="removePage()" href="#">removePageContent</a>
+                               <img src="../res/img/SVG/32-office-icons_3.svg" ng-click="removeWidget(w)" class="icons" title="Remove widget"/>
+                               <img src="../res/img/SVG/32-office-icons_21.svg" ng-click="getPage()" class="icons" title="View Document"/>
+                               <a class="btn btn-primary" ng-click="removePage()" href="#">new page</a>
                                <div class="pagecontent">
                                    <img ng-src="{{pageContent}}" alt="page content">
                                </div>

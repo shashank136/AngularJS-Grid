@@ -1,9 +1,9 @@
 (function() {
     'use strict';
     angular.module('webviewer').controller('mainController', mainController);
-    mainController.$inject = ['$scope', '$log', 'thumbnailService'];
+    mainController.$inject = ['$scope', '$log', 'widgetfactoryService', 'apiService', 'thumbnailService', 'contentService'];
 
-    function mainController($scope, $log, thumbnailService) {
+    function mainController($scope, $log, widgetfactoryService, apiService, thumbnailService, contentService) {
         $scope.widgets = [ {
             x: 0,
             y: 0,
@@ -21,7 +21,10 @@
             var newEle = thumbnailService.addElement('contentFrame');
         };
         
+        // Calls widget factory and creates widgets for each feature
         $scope.addWidget = function() {
+
+            var status = widgetfactoryService.getContentFrame();
         	console.log('Adding widget');
             var newWidget = {
                 x: 0,
@@ -39,6 +42,7 @@
             $scope.widgets[0].height = 2;
         };
         
+        // Removes a specific widget from the active widget list
         $scope.removeWidget = function(w) {
             var index = $scope.widgets.indexOf(w);
             $scope.widgets.splice(index, 1);
@@ -74,11 +78,16 @@
 
         // code to add pages and remove pages from the content frame
         $scope.getPage = function(){
-        	$scope.pageContent = "../res/img/umg.jpg"
+            var p1 = "http://10.96.11.168:8080/WebViewer/rest/document/";
+            var p2 = contentService.getPage($scope);
+            var p3 = "/render/1";
+        	$scope.pageContent = "../res/img/umg.jpg";//p1+p2+p3;            
+            console.log(p2);
         }
 
         $scope.removePage = function(){
-        	$scope.pageContent = "test";
+            var x = $scope.pageContent;
+            $scope.pageContent = x.substr(0, x.length-1)+"2";
         }
     };
 })();
