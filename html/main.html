@@ -17,7 +17,7 @@
 	    <script type="text/javascript" src="../js/common/bootstrap.min.js"></script>
 
         
-        <script type="text/javascript" src="../js/common/angular.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
         <script type="text/javascript" src="../js/common/jquery-ui.js"></script>
         <script type="text/javascript" src="../js/common/lodash.min.js"></script>
         
@@ -69,90 +69,17 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <img src="../res/img/SVG/32-office-icons_24.svg" ng-click="addWidget()" class="icons" title="Add Frame"/>
+                        <img src="../res/img/SVG/32-office-icons_24.svg" ng-click="addWidget('content')" class="icons" title="Add Frame"/>
                     </li>
                      <li class="nav-item">
-                        <img src="../res/img/SVG/32-office-icons_26.svg" ng-click="addWidget()" class="icons" title="Show thumbnails"/>
+                        <img src="../res/img/SVG/32-office-icons_26.svg" ng-click="addWidget('thumbnail')" class="icons" title="Show thumbnails"/>
                     </li>
                     <li class="nav-item">
-                        <img src="../res/img/SVG/32-office-icons_29.svg" ng-click="addWidget()" class="icons" title="Add Notes"/>
+                        <img src="../res/img/SVG/32-office-icons_7.svg" ng-click="addWidget('notes')" class="icons" title="Add Notes"/>
                     </li>
                      <li class="nav-item">
-                        <img src="../res/img/SVG/32-office-icons_1.svg" ng-click="addWidget()" class="icons" title="Help"/>
-                    </li>
-                    <!--li class="nav-item dropdown">
-                        <a aria-expanded="false" aria-haspopup="true" class="nav-link" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
-                            File
-                        </a>
-                        <div aria-labelledby="navbarDropdown" class="dropdown-menu">
-                            <a class="dropdown-item" href="#" ng-click="addWidget()" role="button">
-                                Add Element
-                            </a>
-                            <a class="dropdown-item" href="#" ng-click="moveWidget()" role="button">
-                                Remove Element
-                            </a>
-                            <div class="dropdown-divider">
-                            </div>
-                            <a class="dropdown-item" href="#">
-                                Something else here
-                            </a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a aria-expanded="false" aria-haspopup="true" class="nav-link" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
-                            Edit
-                        </a>
-                        <div aria-labelledby="navbarDropdown" class="dropdown-menu">
-                            <a class="dropdown-item" href="#">
-                                Action
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                Another action
-                            </a>
-                            <div class="dropdown-divider">
-                            </div>
-                            <a class="dropdown-item" href="#">
-                                Something else here
-                            </a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a aria-expanded="false" aria-haspopup="true" class="nav-link" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
-                            View
-                        </a>
-                        <div aria-labelledby="navbarDropdown" class="dropdown-menu">
-                            <a class="dropdown-item" href="#">
-                                Action
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                Another action
-                            </a>
-                            <div class="dropdown-divider">
-                            </div>
-                            <a class="dropdown-item" href="#">
-                                Something else here
-                            </a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                         <img src="../res/img/SVG/32-office-icons_1.svg" ng-click="removeWidget(w)" class="icons" aria-expanded="false" aria-haspopup="true" class="nav-link" data-toggle="dropdown" href="#" id="navbarDropdown" role="button"/-->
-                        <!--a aria-expanded="false" aria-haspopup="true" class="nav-link" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
-                            Help
-                        </a-->
-                        <!--div aria-labelledby="navbarDropdown" class="dropdown-menu">
-                            <a class="dropdown-item" href="#">
-                                Action
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                Another action
-                            </a>
-                            <div class="dropdown-divider">
-                            </div>
-                            <a class="dropdown-item" href="#">
-                                Something else here
-                            </a>
-                        </div>
-                    </li-->
+                        <img src="../res/img/SVG/32-office-icons_1.svg" ng-click="addWidget('Help')" class="icons" title="Help"/>
+                    </li>                    
                 </ul>
             </div>
         </nav>
@@ -164,13 +91,14 @@
                <div class="col-md-12">
                    <div gridstack class="grid-stack grid1" options="options" on-change="onChange(event,items)" on-drag-start="onDragStart(event,ui)" on-drag-stop="onDragStop(event,ui)" on-resize-start="onResizeStart(event,ui)" on-resize-stop="onResizeStop(event,ui)">
                        <div gridstack-item ng-repeat="w in widgets" class="grid-stack-item" gs-item-x="w.x" gs-item-y="w.y" gs-item-width="w.width" gs-item-height="w.height" gs-item-autopos="1" on-item-added="onItemAdded(item)" on-item-removed="onItemRemoved(item)">
-                           <div class="grid-stack-item-content">
+                           <div class="grid-stack-item-content" id="grid_stack_content">
                                <img src="../res/img/SVG/32-office-icons_3.svg" ng-click="removeWidget(w)" class="icons" title="Remove widget"/>
-                               <img src="../res/img/SVG/32-office-icons_21.svg" ng-click="getPage()" class="icons" title="View Document"/>
-                               <a class="btn btn-primary" ng-click="removePage()" href="#">new page</a>
-                               <div class="pagecontent">
-                                   <img ng-src="{{pageContent}}" alt="page content">
-                               </div>
+                               <!-- <img src="../res/img/SVG/32-office-icons_21.svg" ng-click="getPage()" class="icons" title="View Document"/> -->
+                               <!-- <img src="../res/img/SVG/32-office-icons_22.svg" ng-click="removePage()" class="icons" title="Next Document"/> -->
+                               <!--a class="btn btn-primary" ng-click="removePage()" href="#">new page</a-->
+                               <!-- <div class="pagecontent"> -->
+                                   <!-- <img ng-src="{{pageContent}}" alt="page content"> -->
+                               <!-- </div> -->
                            </div>
                        </div>
                    </div>

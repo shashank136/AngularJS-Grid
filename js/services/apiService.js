@@ -1,7 +1,8 @@
 (function(){
 	'use strict';
 
-	angular.module('apiService', apiService);
+	angular.module('webviewer')
+			.service('apiService', apiService);
 
 	function apiService(){
 

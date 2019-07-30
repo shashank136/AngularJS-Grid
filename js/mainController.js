@@ -1,9 +1,9 @@
 (function() {
     'use strict';
     angular.module('webviewer').controller('mainController', mainController);
-    mainController.$inject = ['$scope', '$log', 'widgetfactoryService', 'apiService', 'thumbnailService', 'contentService'];
+    mainController.$inject = ['$scope', '$log', 'thumbnailService', 'contentService', 'widgetfactoryService'];
 
-    function mainController($scope, $log, widgetfactoryService, apiService, thumbnailService, contentService) {
+    function mainController($scope, $log, thumbnailService, contentService, widgetfactoryService) {
         $scope.widgets = [ {
             x: 0,
             y: 0,
@@ -22,17 +22,31 @@
         };
         
         // Calls widget factory and creates widgets for each feature
-        $scope.addWidget = function() {
+        $scope.addWidget = function(widgetType) {
 
-            var status = widgetfactoryService.getContentFrame();
+        	var status = false;
+        	console.log(widgetType);
+        	if(widgetType=='content'){
+            	status = widgetfactoryService.getContentFrame($scope);
+        	}
+            else if(widgetType=='thumbnail'){
+            	status = widgetfactoryService.getThumbnailPanel($scope);
+            }
+            else if(widgetType=='notes'){
+            	status = widgetfactoryService.getNotesPanel($scope);
+            }
+            else{
+            	status = widgetfactoryService.getHelpFrame($scope);
+            }
         	console.log('Adding widget');
-            var newWidget = {
-                x: 0,
-                y: 0,
-                width: 1,
-                height: 1
-            };
-            $scope.widgets.push(newWidget);
+            
+            // var newWidget = {
+            //     x: 0,
+            //     y: 0,
+            //     width: 1,
+            //     height: 1
+            // };
+            // $scope.widgets.push(newWidget);
             console.log($scope.widgets);
         };
         
@@ -86,8 +100,9 @@
         }
 
         $scope.removePage = function(){
-            var x = $scope.pageContent;
-            $scope.pageContent = x.substr(0, x.length-1)+"2";
+            // $scope.x = $scope.pageContent;
+            // console.log($scope.x);
+            $scope.pageContent = "../res/img/umg.jpg";//x.substr(0, ($scope.x).length-1)+"2";
         }
     };
 })();
